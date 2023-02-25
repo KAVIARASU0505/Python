@@ -101,3 +101,15 @@ Raw='Name',"New"
 print(type(Raw))
 print(Raw)
 print(len(Raw))
+#Sets
+animal={"dog","cat","Girafee","Monkey","cat","dog","Kangaroo"};
+print(animal);# sets will show random values everytime running
+# We can also define the input as set
+str=set('1234561489');
+str1=set('adfgvbhjnhjnkm')
+print(str)
+print(str1)
+print(str-str1) # It will show output of the first declared str only
+print(str|str1) # It will result as str or str1
+print(str&str1) #& symbol will show same values between them
+print(str^str1)
