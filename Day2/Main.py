@@ -101,5 +101,3 @@ Raw='Name',"New"
 print(type(Raw))
 print(Raw)
 print(len(Raw))
-
-
