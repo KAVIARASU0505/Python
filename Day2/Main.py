@@ -87,6 +87,11 @@ Matrix1=[[1,2,3],
         [7,8,9]]
 arr7=[[row[i] for row in Matrix1]for i in range(3)]
 print(arr7)
+Matrix2=[[1,2,3],
+        [4,5,6],
+        [7,8,9]]
+#Matrix2=list(zip(*Matrix2))--->The output will not come because we already declared list as variable so list inbuild function will not work
+print(Matrix2);
 x=[1,2,4,5,6,7,8,9,10,12]
 del x[3];
 print(x)
