@@ -62,7 +62,7 @@ ulist = list(map(str.lower, ulist))
 plist=["Kaviarasu@002","Noname@002","Newname@002"]
 def UserLogin():
         try:
-            print("Enter the Username:")
+            print("\n\nEnter the Username:")
             Uinputs = input()
             for inp in ulist:
                 if Uinputs == inp:
@@ -75,7 +75,7 @@ def UserLogin():
             UserLogin()  
 def password():
       try:
-            print("Enter the Password:")
+            print("\n\nEnter the Password:")
             Pinputs = input()
             for pwor in plist:
                 if Pinputs == pwor:
@@ -95,14 +95,15 @@ def viewproducts():
             print("Type yes to view products")
             confirm = input()
             if confirm=="Yes" or confirm=="YES" or confirm=="yes":
-                print("{:<10} {:<20} {:<15} {:<10}".format('Si.no', 'Product Name', 'Version', 'Price'))
+                print("\n\n{:<10} {:<20} {:<15} {:<10}".format('Si.no', 'Product Name', 'Version', 'Price'))
                 for product in Fullproducts:
                     print("{:<10} {:<20} {:<15} {:<10}".format(product['Si.no'], product['ProductName:'], product['Version:'], product['Price:'])) 
                 list1=[]
                 for product in Fullproducts:
                     list1.append(product["Price:"])
-                print("The total value of the product is:",reduce(lambda x, y: x+y, list1))
+                print("The total value of the product in the given products is:",reduce(lambda x, y: x+y, list1))
             else:
+                print("You are exited.......due to pressed other characters.Please Relogin..")
                 sys.exit()
 class Payment:
     def __init__(self,amount):
@@ -117,23 +118,24 @@ class Cart:
             self.items=[]
            def add_to_cart(self, product):
             self.items.append(product)
-            print("Product added to cart")
+            print("\n\nProduct added to cart")
            def view_cart(self):
              if self.items:
-              print("Your cart contains:")
+              print("\n\nYour cart contains:")
              for product in self.items:
                 print(product)
-             print("press 1 to redirect to payment page........")
+             print("\n\npress 1 to redirect to payment page........")
              confirm=int(input())
              if confirm==1:
                  payment=Payment(price)
                  payment.process_payment()
-                 
+             else:
+                 print("You are exited.....")
 def orderproducts():
-            print("Type Si.No to Add your product to cart")
+            print("\n\nType Si.No to Add your product to cart")
             confirm = int(input())
             if confirm < len(Fullproducts):
-                  print("Product Name :",Fullproducts[confirm]['ProductName:'])
+                  print("\n\nProduct Name :",Fullproducts[confirm]['ProductName:'])
                   print("Version :",Fullproducts[confirm]['Version:'])
                   print("Price :",Fullproducts[confirm]['Price:'])
                   product = {
@@ -147,6 +149,9 @@ def orderproducts():
                   add=Cart()
                   add.add_to_cart(new)
                   add.view_cart()
+            else:
+                print("Please type the correct Si.no in the given product items")
+                orderproducts()
 print("Welcome to Ecart!!!!!!!!!\n")
 txt="Admin or User"
 print(txt.center(100,"-"))
@@ -162,6 +167,5 @@ elif ipt=="No" or ipt=="NO" or ipt=="no":
     password()
     viewproducts()
     orderproducts()
-   # Cart.view_cart()
 else:
   exit()
