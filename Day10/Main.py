@@ -104,32 +104,49 @@ def viewproducts():
                 print("The total value of the product is:",reduce(lambda x, y: x+y, list1))
             else:
                 sys.exit()
+class Payment:
+    def __init__(self,amount):
+        self.amount=amount
+    def process_payment(self):
+        print(f"""
+               Your Payment is processing...... 
+               The total amount is {self.amount}
+              """)
+class Cart:
+           def __init__(self):
+            self.items=[]
+           def add_to_cart(self, product):
+            self.items.append(product)
+            print("Product added to cart")
+           def view_cart(self):
+             if self.items:
+              print("Your cart contains:")
+             for product in self.items:
+                print(product)
+             print("press 1 to redirect to payment page........")
+             confirm=int(input())
+             if confirm==1:
+                 payment=Payment(price)
+                 payment.process_payment()
+                 
 def orderproducts():
-      try:
-            print("Type Si.No to Purchase your product")
+            print("Type Si.No to Add your product to cart")
             confirm = int(input())
             if confirm < len(Fullproducts):
-              print("Product Name :",Fullproducts[confirm]['ProductName:'])
-              print("Version :",Fullproducts[confirm]['Version:'])
-              print("Price :",Fullproducts[confirm]['Price:'])
-            else:
-              raise ValueError
-      except:
-          print("ReEnter the Si.No which was available in the product section!")
-          orderproducts() 
-def orderproducts():
-      try:
-            print("Type Si.No to Purchase your product")
-            confirm = int(input())
-            if confirm < len(Fullproducts):
-              print("Product Name :",Fullproducts[confirm]['ProductName:'])
-              print("Version :",Fullproducts[confirm]['Version:'])
-              print("Price :",Fullproducts[confirm]['Price:'])
-            else:
-              raise ValueError
-      except:
-          print("ReEnter the Si.No which was available in the product section!")
-          orderproducts()  
+                  print("Product Name :",Fullproducts[confirm]['ProductName:'])
+                  print("Version :",Fullproducts[confirm]['Version:'])
+                  print("Price :",Fullproducts[confirm]['Price:'])
+                  product = {
+                   'Product Name': Fullproducts[confirm]['ProductName:'],
+                   'Version': Fullproducts[confirm]['Version:'],
+                   'Price': Fullproducts[confirm]['Price:']
+                   }
+                  global price 
+                  price = product['Price']
+                  new=product.copy()
+                  add=Cart()
+                  add.add_to_cart(new)
+                  add.view_cart()
 print("Welcome to Ecart!!!!!!!!!\n")
 txt="Admin or User"
 print(txt.center(100,"-"))
@@ -145,6 +162,6 @@ elif ipt=="No" or ipt=="NO" or ipt=="no":
     password()
     viewproducts()
     orderproducts()
-    PaymentAreana()
+   # Cart.view_cart()
 else:
   exit()
