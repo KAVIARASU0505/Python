@@ -1,0 +1,108 @@
+PS E:\Python Project> python3 -m pdb debug3.py
+> e:\python project\debug3.py(1)<module>()
+-> def my_function(x):
+(Pdb) break 2
+Breakpoint 1 at e:\python project\debug3.py:2
+(Pdb) c
+> e:\python project\debug3.py(2)my_function()
+-> y = x * 2
+(Pdb) step
+> e:\python project\debug3.py(3)my_function()
+-> z = y + 3
+(Pdb) step
+> e:\python project\debug3.py(4)my_function()
+-> return z
+(Pdb) step
+--Return--
+> e:\python project\debug3.py(4)my_function()->13
+-> return z
+(Pdb) until
+> e:\python project\debug3.py(7)<module>()
+-> print(result)
+(Pdb) EOF
+PS E:\Python Project> python3 -m pdb debug3.py
+> e:\python project\debug3.py(1)<module>()
+-> def my_function(x):
+(Pdb) break 13
+*** Blank or comment
+(Pdb) break 12
+Breakpoint 1 at e:\python project\debug3.py:12
+(Pdb) c
+13
+> e:\python project\debug3.py(12)my_function1()
+-> return z
+(Pdb) until
+--Return--
+> e:\python project\debug3.py(12)my_function1()->15
+-> return z
+(Pdb) clear 13
+*** Breakpoint number 13 out of range
+(Pdb) c
+15
+PS E:\Python Project> python3 -m pdb debug3.py
+> e:\python project\debug3.py(1)<module>()
+-> def my_function(x):
+(Pdb) break 9
+Breakpoint 1 at e:\python project\debug3.py:9
+(Pdb) c
+13
+> e:\python project\debug3.py(9)my_function1()
+-> z = y + 3
+(Pdb) until 12
+--Return--
+> e:\python project\debug3.py(10)my_function1()->15
+-> return z
+(Pdb) c
+15
+The program finished and will be restarted
+PS E:\Python Project> python3 -m pdb debug3.py
+> e:\python project\debug3.py(1)<module>()
+-> def my_function(x):
+(Pdb) break 9
+Breakpoint 1 at e:\python project\debug3.py:9
+(Pdb) c
+13
+> e:\python project\debug3.py(9)my_function1()
+-> z = y + 3
+(Pdb) return
+--Return--
+> e:\python project\debug3.py(10)my_function1()->15
+-> return z
+(Pdb) c
+15
+The program finished and will be restarted
+(Pdb) break 9
+Breakpoint 1 at e:\python project\debug3.py:9
+(Pdb) break
+Num Type         Disp Enb   Where
+1   breakpoint   keep yes   at e:\python project\debug3.py:9
+PS E:\Python Project> python3 -m pdb debug3.py
+> e:\python project\debug3.py(1)<module>()
+-> def my_function(x):
+(Pdb) tbreak 9
+Breakpoint 1 at e:\python project\debug3.py:9
+(Pdb) c
+13
+Deleted breakpoint 1 at e:\python project\debug3.py:9
+> e:\python project\debug3.py(9)my_function1()
+-> z = y + 3
+(Pdb) c
+15
+The program finished and will be restarted
+> e:\python project\debug3.py(1)<module>()
+-> def my_function(x):
+(Pdb) c
+13
+15
+The program finished and will be restarted
+PS E:\Python Project> python3 -m pdb debug3.py
+> e:\python project\debug3.py(1)<module>()
+-> def my_function(x):
+(Pdb) break 3
+Breakpoint 1 at e:\python project\debug3.py:3
+(Pdb) jump 7
+> e:\python project\debug3.py(7)<module>()
+-> def my_function1(x):
+(Pdb) c
+15
+The program finished and will be restarted
