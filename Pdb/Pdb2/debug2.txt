@@ -1,0 +1,269 @@
+kaviarasuchinnu@aspire1747-HP-280-G2-MT:~/pdb$ python3 -m pdb debug2.py
+> /home/kaviarasuchinnu/pdb/debug2.py(1)<module>()
+-> def add(x,y):
+(Pdb) n
+> /home/kaviarasuchinnu/pdb/debug2.py(4)<module>()
+-> def main():
+(Pdb) n
+> /home/kaviarasuchinnu/pdb/debug2.py(9)<module>()
+-> if __name__=="__main__":
+(Pdb) c
+Num 1 : 23434
+Num 2 : 43
+23477
+The program finished and will be restarted
+> /home/kaviarasuchinnu/pdb/debug2.py(1)<module>()
+-> def add(x,y):
+(Pdb) q
+kaviarasuchinnu@aspire1747-HP-280-G2-MT:~/pdb$ python3 -m pdb debug2.py
+> /home/kaviarasuchinnu/pdb/debug2.py(1)<module>()
+-> def add(x,y):
+(Pdb)
+(Pdb) n
+> /home/kaviarasuchinnu/pdb/debug2.py(4)<module>()
+-> def main():
+(Pdb) n
+> /home/kaviarasuchinnu/pdb/debug2.py(9)<module>()
+-> if __name__=="__main__":
+(Pdb) n
+> /home/kaviarasuchinnu/pdb/debug2.py(10)<module>()
+-> main()
+(Pdb) n
+Num 1 : n
+Num 2 : 4
+n4
+--Return--
+> /home/kaviarasuchinnu/pdb/debug2.py(10)<module>()->None
+-> main()
+(Pdb) c
+The program finished and will be restarted
+> /home/kaviarasuchinnu/pdb/debug2.py(1)<module>()
+-> def add(x,y):
+(Pdb) 4
+4
+(Pdb) n
+> /home/kaviarasuchinnu/pdb/debug2.py(4)<module>()
+-> def main():
+(Pdb) c
+Num 1 : 4
+Num 2 : q
+4q
+The program finished and will be restarted
+> /home/kaviarasuchinnu/pdb/debug2.py(1)<module>()
+-> def add(x,y):
+(Pdb) c
+Num 1 : n
+Num 2 : n
+nn
+The program finished and will be restarted
+> /home/kaviarasuchinnu/pdb/debug2.py(1)<module>()
+-> def add(x,y):
+(Pdb) help\
+*** No help for '\\'
+(Pdb) help
+
+Documented commands (type help <topic>):
+========================================
+EOF    c          d        h         list      q        rv       undisplay
+a      cl         debug    help      ll        quit     s        unt      
+alias  clear      disable  ignore    longlist  r        source   until    
+args   commands   display  interact  n         restart  step     up       
+b      condition  down     j         next      return   tbreak   w        
+break  cont       enable   jump      p         retval   u        whatis   
+bt     continue   exit     l         pp        run      unalias  where    
+
+Miscellaneous help topics:
+==========================
+exec  pdb
+
+(Pdb) ll
+  1  -> def add(x,y):
+  2         sum=x+y
+  3         return sum
+  4     def main():
+  5         x=input("Num 1 : ")
+  6         y=input("Num 2 : ")
+  7         z=add(x,y)
+  8         print(z)
+  9     if __name__=="__main__":
+ 10         main()
+(Pdb) list 2
+  1  -> def add(x,y):
+  2         sum=x+y
+  3         return sum
+  4     def main():
+  5         x=input("Num 1 : ")
+  6         y=input("Num 2 : ")
+  7         z=add(x,y)
+  8         print(z)
+  9     if __name__=="__main__":
+ 10         main()
+[EOF]
+(Pdb) list 3
+  1  -> def add(x,y):
+  2         sum=x+y
+  3         return sum
+  4     def main():
+  5         x=input("Num 1 : ")
+  6         y=input("Num 2 : ")
+  7         z=add(x,y)
+  8         print(z)
+  9     if __name__=="__main__":
+ 10         main()
+[EOF]
+(Pdb) list 1
+  1  -> def add(x,y):
+  2         sum=x+y
+  3         return sum
+  4     def main():
+  5         x=input("Num 1 : ")
+  6         y=input("Num 2 : ")
+  7         z=add(x,y)
+  8         print(z)
+  9     if __name__=="__main__":
+ 10         main()
+[EOF]
+(Pdb)
+-> def add(x,y):
+(Pdb) list 7,17
+  7         z=add(x,y)
+  8         print(z)
+  9     if __name__=="__main__":
+ 10         main()
+ 11     def my_function():
+ 12         x = 1
+ 13         y = 2
+ 14         z = 3
+ 15         print(x + y + z)
+ 16  
+ 17     my_function()
+(Pdb)
+(Pdb) list 2,6
+  2         sum=x+y
+  3         return sum
+  4  -> def main():
+  5         x=input("Num 1 : ")
+  6         y=input("Num 2 : ")
+(Pdb) list 3,90
+  3         return sum
+  4  -> def main():
+  5         x=input("Num 1 : ")
+  6         y=input("Num 2 : ")
+  7         z=add(x,y)
+  8         print(z)> def add(x,y):
+(Pdb) n
+> /home/kaviarasuchinnu/pdb/debug2.py(4)<module>()
+-> if __name__=="__main__":
+(Pdb) n
+> /home/kaviarasuchinnu/pdb/debug2.py(5)<module>()
+-> x=input("Num 1 : ")
+(Pdb) n
+Num 1 : 12
+> /home/kaviarasuchinnu/pdb/debug2.py(6)<module>()
+-> y=input("Num 2 : ")
+(Pdb) n
+Num 2 : 43
+> /home/kaviarasuchinnu/pdb/debug2.py(7)<module>()
+-> z=add(x,y)
+(Pdb) print(x)
+12
+(Pdb) print(y)
+43
+(Pdb) n
+> /home/kaviarasuchinnu/pdb/debug2.py(8)<module>()
+-> print(z)
+(Pdb)
+1243
+> /home/kaviarasuchinnu/pdb/debug2.py(9)<module>()
+-> def my_function():
+(Pdb) print(z)
+1243
+(Pdb) whatis z
+<class 'str'>
+(Pdb) whatis x
+<class 'str'>
+(Pdb)
+  9     if __name__=="__main__":
+ 10         main()
+ 11     def my_function():
+ 12         x = 1
+ 13         y = 2
+ 14         z = 3
+ 15         print(x + y + z)
+ 16  
+ 17     my_function()
+> def add(x,y):
+(Pdb) n
+> /home/kaviarasuchinnu/pdb/debug2.py(4)<module>()
+-> if __name__=="__main__":
+(Pdb) n
+> /home/kaviarasuchinnu/pdb/debug2.py(5)<module>()
+-> x=input("Num 1 : ")
+(Pdb) n
+Num 1 : 12
+> /home/kaviarasuchinnu/pdb/debug2.py(6)<module>()
+-> y=input("Num 2 : ")
+(Pdb) n
+Num 2 : 43
+> /home/kaviarasuchinnu/pdb/debug2.py(7)<module>()
+-> z=add(x,y)
+(Pdb) print(x)
+12
+(Pdb) print(y)
+43
+(Pdb) n
+> /home/kaviarasuchinnu/pdb/debug2.py(8)<module>()
+-> print(z)
+(Pdb)
+1243
+> /home/kaviarasuchinnu/pdb/debug2.py(9)<module>()
+-> def my_function():
+(Pdb) print(z)
+1243
+(Pdb) whatis z
+<class 'str'>
+(Pdb) whatis x
+<class 'str'>
+(Pdb) EOF
+
+1.kaviarasuchinnu@aspire1747-HP-280-G2-MT:~/pdb$ python3 -m pdb debug2.py
+> /home/kaviarasuchinnu/pdb/debug2.py(1)<module>()
+-> def add(x,y):
+(Pdb) n
+> /home/kaviarasuchinnu/pdb/debug2.py(4)<module>()
+-> if __name__=="__main__":
+(Pdb) n
+> /home/kaviarasuchinnu/pdb/debug2.py(5)<module>()
+-> x=input("Num 1 : ")
+(Pdb) n
+Num 1 : n
+> /home/kaviarasuchinnu/pdb/debug2.py(6)<module>()
+-> y=input("Num 2 : ")
+(Pdb) n
+Num 2 : n
+> /home/kaviarasuchinnu/pdb/debug2.py(7)<module>()
+-> z=add(x,y)
+(Pdb) n
+> /home/kaviarasuchinnu/pdb/debug2.py(8)<module>()
+-> print(z)
+(Pdb) n
+nn
+> /home/kaviarasuchinnu/pdb/debug2.py(9)<module>()
+-> def my_function():
+(Pdb) n
+> /home/kaviarasuchinnu/pdb/debug2.py(15)<module>()
+-> my_function()
+(Pdb) n
+6
+The program runs good
+--Return--
+> /home/kaviarasuchinnu/pdb/debug2.py(15)<module>()->None
+-> my_function()
+(Pdb) source my_function
+  9     def my_function():
+ 10         t = 1
+ 11         u = 2
+ 12         i = 3
+ 13         print(t + u + i)
+ 14         print("The program runs good")
+(Pdb)  
