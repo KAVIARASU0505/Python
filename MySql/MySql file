@@ -1,0 +1,75 @@
+CREATE TABLE employee1 (
+    person_id int,
+    first_name varchar(20),
+    last_name varchar(20),
+    age int,
+    location varchar(20)
+);
+CREATE TABLE product (
+    product_id varchar(50) not null,
+    man_date varchar(50) not null,
+    expiry_date varchar(20),
+    del_location varchar(30) not null,
+    num int not null
+    
+);
+CREATE TABLE product1(
+    product_id varchar(50) not null,
+    state varchar(10),
+    offer varchar(10) not null
+);
+insert into product1 values("pd123","sweet","yes"),
+                          ("pd937","Sour","No"),
+                          ("pd646","Crispy","yes"),
+                          ("pd233","Hot","No");
+insert into employee1 values (1,"kavi","arasu",21,"TamilNadu"),
+                            (2,"kumaran","jawahar",21,"TamilNadu"),
+                            (3,"Jay","Prasanth",21,"TamilNadu"),
+                            (4,"Arun","Prakash",22,"TamilNadu"),
+                            (5,"Sanjevi","prasanth",20,"TamilNadu");
+insert into product values ("pd123","25th jan","25th oct","Chennai",6),
+                            ("pd937","1st jan","14th sep","Namakkal",6),
+                            ("pd646","4th jan","10th aug","Chennai",3),
+                            ("pd655","25th jan","24th nov","Chennai",5),
+                            ("pd564","10th jan","18th jun","Chennai",8);
+select * from employee1;
+select * from employee1 where age=21;
+select first_name from employee1;
+#select * from product where del_location="Chennai"
+select * from product where not del_location="Chennai";
+select product_id,expiry_date from product where num=6 or num=5;
+select * from product order by product_id;
+select * from product order by product_id desc;
+insert into product(product_id,man_date,del_location,num) values
+("pd734","24th jan","Madurai",5);
+select * from product where num=5;
+update employee1 set first_name="Kavin",last_name="E" where person_id=2;
+select * from employee1;
+delete from employee1 where first_name="kavi";
+select * from employee1;
+#delete from employee1;  ---> It will delete the row except the creation of table.
+select * from product limit 2;
+alter table product add price int;
+select * from product;
+update product set price=100 where product_id="pd123";
+update product set price=200 where product_id="pd937";
+update product set price=50 where product_id="pd646";
+update product set price=400 where product_id="pd655";
+update product set price=500 where product_id="pd564";
+select * from product;
+select min(price) from product;
+select max(price) as maximum_price from product;
+select count(product_id) as Number_of_products from product;
+select avg(price) from product;
+select sum(price) from product;
+select * from product where del_location like "C%";
+select * from employee1 where last_name like "%pr%";
+select * from employee1 where last_name like "_a%";
+select * from employee1 where age in (21);
+select * from product where price between 50 and 300 order by price;
+select * from product where price not between 50 and 300 order by price;
+select * from product1;
+select product.del_location,product1.product_id from product inner join product1 on product.product_id=product1.product_id;
+select product.man_date,product1.state from product left join product1 on product.product_id=product1.product_id;
+select product.man_date,product1.state from product right join  product1 on product.product_id=product1.product_id;
+select product_id,man_date from product where exists(select state from product1 where product1.product_id=product.product_id and price<200)
